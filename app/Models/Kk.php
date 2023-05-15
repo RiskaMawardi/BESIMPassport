@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Kk extends Model
 {
     use HasFactory;
+    protected $table ='kk';
+    protected $fillable = [
+        'no_kk',
+        'nik',
+        'id_akun'
+    ];
+
 }

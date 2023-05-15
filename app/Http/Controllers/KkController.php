@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ApiFormatter;
 use App\Models\Kk;
+use Exception;
 use Illuminate\Http\Request;
 
 class KkController extends Controller
@@ -14,7 +16,12 @@ class KkController extends Controller
      */
     public function index()
     {
-        //
+        $data = Kk::all();
+        if($data){
+            return ApiFormatter::createAPI(200,'success',$data);
+        }else{
+            return ApiFormatter::createAPI(400,'Failed');
+        }
     }
 
     /**
@@ -35,7 +42,19 @@ class KkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $kk = Kk::create($request->all());
+
+            $data = Kk::where('no_kk','=',$kk->no_kk)->get();
+            if($data){
+                return ApiFormatter::createAPI(200,'success',$data);
+            }else{
+                return ApiFormatter::createAPI(400,'Failed');
+            }
+        }catch(Exception $error){
+            return ApiFormatter::createAPI(400,'Failed',$error);
+        }
+
     }
 
     /**
@@ -46,7 +65,7 @@ class KkController extends Controller
      */
     public function show(Kk $kk)
     {
-        //
+        
     }
 
     /**

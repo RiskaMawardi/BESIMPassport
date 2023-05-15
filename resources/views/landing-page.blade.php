@@ -1,127 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+  	<title>Login Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/img/Logo-IM.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <title>Permohonan Paspor Baru untuk Masyarakat Umum</title>
-</head>
-<style>
-    .collapse ul li a {
-        color: #ffff;
-        text-align: center;
-    }
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
 
-</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../assets/css/style.css">
 
-<body>
-    <div class="container">
-        <section class="header">
-            <nav class="navbar navbar-expand-lg mt-4 rounded-3" style="background-color: #1d3557;">
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav" style="color:#ffff;">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Information
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Immigration Law</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Media Room
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Document
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Complaints
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tentang
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Contact Us
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                FAQ
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-    </div>
-    <div class="jumbotron">
-        <section class="image">
-            <div class="p-5 text-center bg-image rounded-3" style="
-    background-image: url('assets/img/Layanan-WNI.png');
-  ">
-        </section>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
-</body>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+							<div class="text w-100">
+								<h2>Welcome to login</h2>
+								<p>Don't have an account?</p>
+								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a>
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-lg-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Username</label>
+			      			<input type="text" class="form-control" placeholder="Username" required>
+			      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              <input type="password" class="form-control" placeholder="Password" required>
+		            </div>
+		            <div class="form-group">
+		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="#">Forgot Password</a>
+									</div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/popper.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+	</body>
 </html>
+
