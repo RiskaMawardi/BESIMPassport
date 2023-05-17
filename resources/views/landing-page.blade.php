@@ -22,6 +22,9 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="../assets/landing-page/img/imig.png">
   </head>
+  <style>
+    
+  </style>
   <body>
     <!-- navbar-->
     <header class="header">
@@ -246,10 +249,10 @@
         </div>
       </div>
     </section><a class="scroll-top-btn" id="scrollTop" href="#!"><i class="fas fa-long-arrow-alt-up"></i></a>
-    <footer class="with-pattern-1 position-relative pt-5">
+    <footer class="with-pattern-1 position-relative pt-5" style="background-color:#274472">
       <div class="container py-5">
         <div class="row gy-4">
-          <div class="col-lg-3"><img class="mb-4" src="../assets/landing-page/img/logo.svg" alt="" width="110">
+          <div class="col-lg-3"><img class="mb-4" src="../assets/landing-page/img/imig.png" alt="" width="110">
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>
           <div class="col-lg-2">
@@ -292,7 +295,7 @@
       </div>
       <div class="copyrights">       
         <div class="container text-center py-4">
-          <p class="mb-0 text-muted text-sm">&copy; 2021, Your company. Template by <a href="https://bootstrapious.com/p/app-landing-page" class="text-reset">Bootstrapious</a>.</p>
+          <p class="mb-0 text-muted text-sm">&copy; 2023, KELOMPOK PASSPORT.</p>
           <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
         </div>
       </div>
