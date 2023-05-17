@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Ktp extends Model
 {
     use HasFactory;
+
+    protected $table = 'ktp';
+    protected $fillable = [
+        'nik',
+        'no_kk',
+        'goldar',
+        'foto'
+    ];
 }

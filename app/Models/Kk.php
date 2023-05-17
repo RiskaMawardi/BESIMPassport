@@ -12,7 +12,17 @@ class Kk extends Model
     protected $fillable = [
         'no_kk',
         'nik',
-        'id_akun'
+        'nama',
+        'tempat_lahir',
+        'tgl_lahir',
+        'jk',
+        'alamt',
+        'agama',
+        'status_pernikahan',
+        'pendidikan',
+        'jenis_pekerjaan',
+        'kewarganegaraan',
+        'id_users'
     ];
 
 }

@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\KkController;
+use App\Http\Controllers\API\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,17 +18,4 @@ Route::get('/', function () {
     return view('landing-page');
 });
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/data-account',[AccountController::class,'data']);
-Route::post('/registers',[AccountController::class,'register']);
-
-
-Route::get('/kk',[KkController::class,'index']);
-Route::post('/kk-create',[KkController::class,'store']);
+Route::get('/index-register',[AuthController::class,'indexRegister']);
