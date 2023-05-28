@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Document extends Model
 {
     use HasFactory;
+    protected $table = 'document';
+    protected $fillable = [
+        'nik',
+        'kk_elektronik',
+        'ktp_elekronik',
+        'akta',
+        'buku_nikah',
+        'ijazah',
+        'surat_baptis'
+    ]
 }

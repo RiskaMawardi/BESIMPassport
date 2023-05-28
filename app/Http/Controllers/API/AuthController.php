@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -26,30 +27,34 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8',
             'no_hp' => 'required',
-            'role' => 'required'
+            'role' => 'required',
         ]);
 
         if($validate->fails()){
-            return BaseController::sendError('Validation Error.', $validate->error());
+            return BaseController::sendError('Validation Error.', $validate->errors());
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-
-
+        $input['password'] = Hash::make($input['password']);
+ 
         $user = User::create($input);
 
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;
         return BaseController::sendResponse($success,'User register successfully.');
+        //return redirect('/login')->with('success', 'User registers successfully!');
     }
 
-    public function login(Request $request){
+    public function login(){
+        return view('auth.login');
+    }
 
+    public function loginAccount(Request $request){
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
             $success['name'] = $user->name;
+            $success['data'] = $user;
             return BaseController::sendResponse($success,'User Login SuccessFully.');
         }else{
             return BaseController::sendError('Unauthorized.',['error'=>'Unauthorized']);

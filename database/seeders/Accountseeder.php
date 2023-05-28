@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
+
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -18,23 +19,23 @@ class Accountseeder extends Seeder
     {
         $akun = [
             [
-                'id_akun' => 1,
-                'username' => 'riska',
+                'name' => 'Riska Mawardi',
+                'email' => 'riska@gmail.com',
                 'password' => Hash::make('mawar123'),
-                'no_hp' => 8,
+                'no_hp' => 9,
                 'role' => 0
             ],
             [
-                'id_akun' => 2,
-                'username' => 'irwan',
+                'name' => 'Irwansyah',
+                'email' => 'irwan@gmail.com',
                 'password' => Hash::make('irwan123'),
-                'no_hp' => 9,
+                'no_hp' => 966443443487,
                 'role' => 1
             ]
         ];
 
         foreach ($akun as $key => $value) {
-            Account::create($value);
+            User::create($value);
         }
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('akta');
             $table->string('buku_nikah');
             $table->string('ijazah');
-            $table->string('surat_baptis');
+            $table->string('surat_baptis')->nullable();
             $table->timestamps();
         });
     }

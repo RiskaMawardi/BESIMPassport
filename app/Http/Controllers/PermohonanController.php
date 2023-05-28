@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class PermohonanController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display are listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -24,7 +24,9 @@ class PermohonanController extends Controller
      */
     public function create()
     {
-        //
+        try{
+            
+        }
     }
 
     /**

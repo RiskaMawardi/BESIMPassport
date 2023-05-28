@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 use App\Http\Controllers\API\AuthController;
@@ -14,8 +17,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing-page');
-});
-
-Route::get('/index-register',[AuthController::class,'indexRegister']);
