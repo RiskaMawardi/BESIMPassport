@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     public function index(){
-        $user = User::all();
         return BaseController::sendResponse($user,'Displaying data');
     }
 
-    public function indexRegister(){
-        return view('auth.register');
-    }
+    
 
     public function register(Request $request){
         $validate = Validator::make($request->all(),[
@@ -36,18 +33,13 @@ class AuthController extends Controller
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
- 
         $user = User::create($input);
-
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;
         return BaseController::sendResponse($success,'User register successfully.');
         //return redirect('/login')->with('success', 'User registers successfully!');
     }
 
-    public function login(){
-        return view('auth.login');
-    }
 
     public function loginAccount(Request $request){
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
@@ -61,9 +53,17 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request){
+    public function logout1(Request $request){
         
         $request->user()->currentAccessToken()->delete();
+    }
+
+    public function logout(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        $user->tokens()->delete();
+        return response()->noContent();
     }
 
 }

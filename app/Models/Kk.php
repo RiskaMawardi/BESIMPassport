@@ -16,13 +16,11 @@ class Kk extends Model
         'tempat_lahir',
         'tgl_lahir',
         'jk',
-        'alamt',
-        'agama',
-        'status_pernikahan',
-        'pendidikan',
+        'alamat',
+        'status_sipil',
         'jenis_pekerjaan',
         'kewarganegaraan',
-        'id_users'
+       
     ];
 
 }

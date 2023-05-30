@@ -2,15 +2,15 @@
 
 namespace App\Helpers;
 
-class ApiFormatter{
+class formatAPI{
 
-    public static $response=[
+    protected static $response =[
         'code' => null,
         'message' => null,
         'data' => null,
     ];
 
-    public static function createAPI($code = null , $message = null , $data = null){
+    public static function createAPI($code = null,$message = null,$data = null){
         self::$response['code'] = $code;
         self::$response['message'] = $message;
         self::$response['data'] = $data;
@@ -18,7 +18,5 @@ class ApiFormatter{
         return response()->json(self::$response,self::$response['code']);
     }
 
+
 }
-
-
-?>

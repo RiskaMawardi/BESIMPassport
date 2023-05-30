@@ -11,11 +11,14 @@ class Document extends Model
     protected $table = 'document';
     protected $fillable = [
         'nik',
-        'kk_elektronik',
-        'ktp_elekronik',
+        'kk',
+        'pathkk',
+        'ktp',
+        'pathktp',
         'akta',
-        'buku_nikah',
-        'ijazah',
-        'surat_baptis'
-    ]
+        'pathakta',
+        'dokumen_tambahan',
+        'pathdoc',
+        'id_document'
+    ];
 }

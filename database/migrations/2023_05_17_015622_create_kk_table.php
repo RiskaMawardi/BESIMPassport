@@ -14,16 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kk', function (Blueprint $table) {
-            $table->id('no_kk');
-            $table->integer('nik')->unique();
+            $table->id();
+            $table->bigInteger('nik')->unique();
             $table->string('nama');
             $table->string('tempat_lahir');
             $table->date('tgl_lahir');
-            $table->char('jk');
+            $table->char('jk',1);
             $table->text('alamat');
-            $table->char('status_sipil');
+
+            $table->char('status_sipil',1);
             $table->string('jenis_pekerjaan');
-            $table->char('kewarganegaraan');
+            $table->char('kewarganegaraan',1);
+
             $table->timestamps();
         });
     }

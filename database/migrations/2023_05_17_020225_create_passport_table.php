@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('passport', function (Blueprint $table) {
             $table->id('id_passport');
-            $table->integer('no_passport')->unique();
-            $table->integer('nik');
+            $table->string('no_passport')->unique();
+            $table->bigInteger('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
             $table->string('foto');
             $table->string('kode_negara')->default('IDN');
