@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     public function index(){
-        $user = User::all();
         return BaseController::sendResponse($user,'Displaying data');
     }
 
@@ -36,9 +35,7 @@ class AuthController extends Controller
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
- 
         $user = User::create($input);
-
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;
         return BaseController::sendResponse($success,'User register successfully.');
@@ -61,9 +58,17 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request){
+    public function logout1(Request $request){
         
         $request->user()->currentAccessToken()->delete();
+    }
+
+    public function logout(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        $user->tokens()->delete();
+        return response()->noContent();
     }
 
 }

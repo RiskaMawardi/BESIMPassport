@@ -17,5 +17,5 @@ class Document extends Model
         'buku_nikah',
         'ijazah',
         'surat_baptis'
-    ]
+    ];
 }
