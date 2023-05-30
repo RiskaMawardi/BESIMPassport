@@ -11,7 +11,7 @@ class Permohonan extends Model
     protected $table = 'permohonan';
     protected $fillable = [
         'nik',
-        'jenis_pengajuan',
+        'jenis_passpor',
         'kepentingan',
         'negara_tujuan',
         'keberangkatan',
