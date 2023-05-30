@@ -44,11 +44,16 @@ class PermohonanController extends Controller
                 'jk' => 'required',
                 'alamat' => 'required',
                 'status_sipil' => 'required',
+
                 'jenis_pekerjaan' => 'required',
+
+                'pekerjaan' => 'required',
+
                 'kewarganegaraan' => 'required',
             ]);
 
             $permohonan = Kk::create($request->all());
+
 
             
             $alldata = 1;
@@ -73,7 +78,8 @@ class PermohonanController extends Controller
 
         }catch(Exception $error){
             return formatAPI::createAPI(400,'Failed',$error->getMessage());
-        }
+
+            
     }
 
     /**
