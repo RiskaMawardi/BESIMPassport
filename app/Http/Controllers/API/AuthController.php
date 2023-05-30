@@ -16,9 +16,7 @@ class AuthController extends Controller
         return BaseController::sendResponse($user,'Displaying data');
     }
 
-    public function indexRegister(){
-        return view('auth.register');
-    }
+    
 
     public function register(Request $request){
         $validate = Validator::make($request->all(),[
@@ -42,9 +40,6 @@ class AuthController extends Controller
         //return redirect('/login')->with('success', 'User registers successfully!');
     }
 
-    public function login(){
-        return view('auth.login');
-    }
 
     public function loginAccount(Request $request){
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){

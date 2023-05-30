@@ -14,16 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('document', function (Blueprint $table) {
-            $table->id('id_document');
-            //$table->integer('id_document')->unique();
-            $table->integer('nik');
+            $table->id();
+            $table->bigInteger('id_document')->unique();
+            $table->bigInteger('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
-            $table->string('kk_elektronik');
-            $table->string('ktp_elektronik');
-            $table->string('akta');
-            $table->string('buku_nikah');
-            $table->string('ijazah');
-            $table->string('surat_baptis')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('pathkk')->nullable();
+            $table->string('ktp')->nullable();
+            $table->string('pathktp')->nullable();
+            $table->string('akta')->nullable();
+            $table->string('pathakta')->nullable();
+            $table->string('dokumen_tambahan')->nullable();
+            $table->string('pathdoc')->nullable();
             $table->timestamps();
         });
     }

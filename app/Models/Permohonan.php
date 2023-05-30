@@ -14,9 +14,8 @@ class Permohonan extends Model
         'jenis_pengajuan',
         'kepentingan',
         'negara_tujuan',
-        'kota_tujuan',
-        'mulai_dari',
-        'sampai',
-        'status_permoohonan'
+        'keberangkatan',
+        'kepulangan',
+        'status_permohonan'
     ];
 }
