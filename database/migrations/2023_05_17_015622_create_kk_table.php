@@ -21,13 +21,9 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->char('jk');
             $table->text('alamat');
-            $table->string('agama');
-            $table->char('status_pernikahan');
-            $table->char('pendidikan');
+            $table->char('status_sipil');
             $table->string('jenis_pekerjaan');
             $table->char('kewarganegaraan');
-            $table->bigInteger('id_users');
-            $table->foreign('id_users')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -18,11 +18,11 @@ return new class extends Migration
             //$table->integer('id_document')->unique();
             $table->integer('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
-            $table->string('kk_elektronik');
-            $table->string('ktp_elektronik');
-            $table->string('akta');
-            $table->string('buku_nikah');
-            $table->string('ijazah');
+            $table->string('kk_elektronik')->nullable();
+            $table->string('ktp_elektronik')->nullable();
+            $table->string('akta')->nullable();
+            $table->string('buku_nikah')->nullable();
+            $table->string('ijazah')->nullable();
             $table->string('surat_baptis')->nullable();
             $table->timestamps();
         });

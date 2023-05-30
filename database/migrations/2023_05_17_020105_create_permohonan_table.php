@@ -18,12 +18,11 @@ return new class extends Migration
             //$table->bigInteger('id_permohonan')->unique();
             $table->integer('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
-            $table->char('jenis_pengajuan');
+            $table->char('jenis_passpor');
             $table->char('kepentingan');
             $table->string('negara_tujuan');
-            $table->string('kota_tujuan');
-            $table->date('mulai_dari');
-            $table->date('sampai');
+            $table->date('keberangkatan');
+            $table->date('kepulangan');
             $table->enum('status_permohonan',['pending','ditolak','disetujui'])->default('pending');
             $table->timestamps();
         });
