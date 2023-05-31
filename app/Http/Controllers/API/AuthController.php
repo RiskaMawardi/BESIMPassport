@@ -16,14 +16,13 @@ class AuthController extends Controller
         return BaseController::sendResponse($user,'Displaying data');
     }
 
-    
-
     public function register(Request $request){
         $validate = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8',
             'no_hp' => 'required',
+            'no_kk' => 'required',
             'role' => 'required',
         ]);
 
@@ -32,7 +31,7 @@ class AuthController extends Controller
         }
 
         $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
+        $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;
@@ -42,15 +41,29 @@ class AuthController extends Controller
 
 
     public function loginAccount(Request $request){
-        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-            $user = Auth::user();
-            $success['token'] = $user->createToken('MyApp')->plainTextToken;
-            $success['name'] = $user->name;
-            $success['data'] = $user;
-            return BaseController::sendResponse($success,'User Login SuccessFully.');
-        }else{
-            return BaseController::sendError('Unauthorized.',['error'=>'Unauthorized']);
-        }
+        // $user = User::where('email', $request->email)->first();
+
+        // if(!$user || !Hash::check($request->password,$user->password)){
+        //     return response([
+        //         'message' => ['these credentials do not match our record']
+        //     ],404);
+        // }
+        
+        // $token =  $user->createToken('Passpor')->accessToken;
+        // $response = [
+        //     'user' =>  $user,
+        //     'token' => $token
+        // ];
+
+        //return BaseController::sendResponse($response, 'User login successfully.');
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
+            $user = Auth::user(); 
+            $success['name'] =  $user->name;
+            return $this->sendResponse($success, 'User login successfully.');
+        } else{ 
+            return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
+        } 
     }
 
     public function logout1(Request $request){

@@ -9,6 +9,7 @@ class Document extends Model
 {
     use HasFactory;
     protected $table = 'document';
+    protected $primaryKey = 'id_document';
     protected $fillable = [
         'nik',
         'kk',
@@ -19,6 +20,5 @@ class Document extends Model
         'pathakta',
         'dokumen_tambahan',
         'pathdoc',
-        'id_document'
     ];
 }

@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('document', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_document')->unique();
+            $table->id('id_document');
             $table->bigInteger('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
             $table->string('kk')->nullable();

@@ -9,6 +9,7 @@ class Permohonan extends Model
 {
     use HasFactory;
     protected $table = 'permohonan';
+    protected $primaryKey = 'id_permohonan';
     protected $fillable = [
         'nik',
         'jenis_passpor',
@@ -16,6 +17,6 @@ class Permohonan extends Model
         'negara_tujuan',
         'keberangkatan',
         'kepulangan',
-        'status_permohonan'
+        'status_permohonan',
     ];
 }

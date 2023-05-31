@@ -40,28 +40,19 @@ class DocumentController extends Controller
     public function store(Request $request)
     {
         try{
-            $pathkk = Storage::put("public/kk", $request->file('kk'));
-            $pathktp = Storage::put("public/ktp", $request->file('ktp'));
-            $pathakta = Storage::put("public/akta", $request->file('akta'));
-            $pathdoc = Storage::put("public/dokumen-tambahan", $request->file('dokumen_tambahan'));
-                        
             $id = 1;
-            $doc = Document::updateOrCreate([
+            $doc = Document::where('')([
                 'id_document' => $id++,
             ],[
-                'kk' => $request->file('kk')->getClientOriginalName(),
-                'pathkk' => $pathkk,
-                'ktp' => $request->file('ktp')->getClientOriginalName(),
-                'pathktp' => $pathktp,
-                'akta' => $request->file('akta')->getClientOriginalName(),
-                'pathakta' => $pathakta,
-                'dokumen_tambahan' => $request->file('dokumen_tambahan')->getClientOriginalName(),
-                'pathdoc' => $pathdoc
+                'kk' => $request->kk,
+                'ktp' => $request->ktp,
+                'akta' => $request->akta,
+                'dokumen_tambahan' => $request->dokumen_tambahan,
             ]);
 
             $i = 1;
 
-            Permohonan::updateOrCreate([
+            Permohonan::update([
                 'id_permohonan'=>$i++, 
             ],[
                 'jenis_passpor' => $request->jenis_passpor,
