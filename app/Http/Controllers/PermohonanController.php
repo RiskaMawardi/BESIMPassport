@@ -68,6 +68,7 @@ class PermohonanController extends Controller
                 'kepulangan'
             ]));
 
+
             
             Document::create([
                 'nik' => $request->nik,
@@ -107,7 +108,11 @@ class PermohonanController extends Controller
         }catch(Exception $error){
             return formatAPI::createAPI(400,'Failed',$error->getMessage());
 
+<<<<<<< HEAD
         }
+=======
+            
+>>>>>>> 6305c9a857b2a61c1c23e330c798ca4303c6fee9
     }
 
     /**
