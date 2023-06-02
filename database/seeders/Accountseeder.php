@@ -19,11 +19,12 @@ class Accountseeder extends Seeder
     {
         $akun = [
             [
-                'name' => 'Irwansyah',
-                'email' => 'irwan@gmail.com',
-                'password' => Hash::make('irwan123'),
+                'name' => 'riska',
+                'email' => 'riska@gmail.com',
+                'password' => Hash::make('riska123'),
                 'no_hp' => 966443443487,
-                'role' => 1
+                'role' => 0,
+                'no_kk' => '987878'
             ]
         ];
 

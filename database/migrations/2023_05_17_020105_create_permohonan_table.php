@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('permohonan', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_permohonan')->unique();
+            $table->id('id_permohonan');
             $table->bigInteger('nik');
             $table->foreign('nik')->references('nik')->on('kk')->onDelete('cascade');
             $table->char('jenis_passpor',1)->nullable();
