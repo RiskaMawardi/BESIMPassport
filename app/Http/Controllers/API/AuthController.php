@@ -16,8 +16,6 @@ class AuthController extends Controller
         return BaseController::sendResponse($user,'Displaying data');
     }
 
-    
-
     public function register(Request $request){
         $validate = Validator::make($request->all(),[
             'name' => 'required',

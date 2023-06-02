@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
-use App\Models\Kk;
+use App\Models\Permohonan;
 use App\Helpers\formatAPI;
 class DocumentController extends Controller
 {
