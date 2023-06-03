@@ -10,7 +10,6 @@ class Kk extends Model
     use HasFactory;
     protected $table ='kk';
     protected $fillable = [
-        'no_kk',
         'nik',
         'nama',
         'tempat_lahir',
@@ -20,7 +19,7 @@ class Kk extends Model
         'status_sipil',
         'jenis_pekerjaan',
         'kewarganegaraan',
-       
     ];
 
+   
 }

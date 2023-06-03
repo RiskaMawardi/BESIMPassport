@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     public function index(){
+
+        $user = User::all();
         return BaseController::sendResponse($user,'Displaying data');
     }
 
@@ -22,6 +24,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8',
             'no_hp' => 'required',
+            'no_kk' => 'required',
             'role' => 'required',
         ]);
 
@@ -30,7 +33,7 @@ class AuthController extends Controller
         }
 
         $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
+        $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;
@@ -40,15 +43,15 @@ class AuthController extends Controller
 
 
     public function loginAccount(Request $request){
-        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-            $user = Auth::user();
-            $success['token'] = $user->createToken('MyApp')->plainTextToken;
-            $success['name'] = $user->name;
-            $success['data'] = $user;
-            return BaseController::sendResponse($success,'User Login SuccessFully.');
-        }else{
-            return BaseController::sendError('Unauthorized.',['error'=>'Unauthorized']);
-        }
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
+            $user = Auth::user(); 
+            dd($user);
+            $success['name'] =  $user->name;
+            return BaseController::sendResponse($success, 'User login successfully.');
+        } else{ 
+            return BaseController::sendError('Unauthorised.', ['error'=>'Unauthorised']);
+        } 
     }
 
     public function logout1(Request $request){
