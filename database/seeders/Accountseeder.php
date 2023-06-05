@@ -23,8 +23,8 @@ class Accountseeder extends Seeder
                 'email' => 'riska@gmail.com',
                 'password' => Hash::make('riska123'),
                 'no_hp' => 966443443487,
-                'role' => 0,
-                'no_kk' => '987878'
+                'role' => 1,
+                'no_kk' => '3201385703040005'
             ]
         ];
 

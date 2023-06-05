@@ -59,7 +59,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         $user = User::find(Auth::user()->id);
 
