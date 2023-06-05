@@ -20,5 +20,6 @@ class Document extends Model
         'pathakta',
         'dokumen_tambahan',
         'pathdoc',
+        'id_user'
     ];
 }

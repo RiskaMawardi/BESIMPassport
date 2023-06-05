@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\PermohonanController;
-use App\Http\Controllers\DocumentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +28,9 @@ Route::post('/permohonan-upload',[PermohonanController::class,'create']);
 //getData
 Route::get('/get-data',[AdminController::class,'getData']);
 Route::get('/get-data-detail/{nik}',[AdminController::class,'getDataDetail']);
+
+//getdatauser
+Route::get('/getDt',[PermohonanController::class,'getData']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

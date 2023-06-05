@@ -23,6 +23,8 @@ return new class extends Migration
             $table->date('keberangkatan')->nullable();
             $table->date('kepulangan')->nullable();
             $table->enum('status_permohonan',['pending','ditolak','disetujui'])->default('pending');
+            $table->bigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

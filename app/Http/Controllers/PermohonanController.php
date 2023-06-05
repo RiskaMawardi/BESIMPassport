@@ -36,26 +36,6 @@ class PermohonanController extends Controller
     public function create(Request $request)
     {
         try{
-            // $request->validate([
-            //     'nik' => 'required',
-            //     'nama' => 'required',
-            //     'tempat_lahir' => 'required',
-            //     'tgl_lahir' => 'required',
-            //     'jk' => 'required',
-            //     'alamat' => 'required',
-            //     'status_sipil' => 'required',
-            //     'jenis_pekerjaan' => 'required',
-            //     'kewarganegaraan' => 'required',
-            //     'kk' => 'required',
-            //     'ktp' => 'required',
-            //     'akta' => 'required',
-            //     'jenis_passpor' => 'required',
-            //     'kepentingan' => 'required',
-            //     'negara_tujuan' => 'required',
-            //     'keberangkatan' => 'required',
-            //     'kepulangan' => 'required',
-            // ]);
-
             $permohonan = Kk::create($request->except([
                 'kk',
                 'ktp',
@@ -67,8 +47,6 @@ class PermohonanController extends Controller
                 'keberangkatan',
                 'kepulangan'
             ]));
-
-
             
             Document::create([
                 'nik' => $request->nik,
@@ -80,14 +58,9 @@ class PermohonanController extends Controller
                 'pathakta' => $request->pathakta,
                 'dokumen_tambahan' => $request->dokumen_tambahan,
                 'pathdoc' => $request->pathdoc,
+                'id_user'=>$request->id_user
             ]);
-
-            // $id = Permohonan::count();
-            // if ($id == 0) {
-            //     $request['id_permohonan'] = 1;
-            // }else {
-            //     $request['id_permohonan'] = $id++;
-            // }
+        
             Permohonan::create([
                 'nik' => $request->nik,
                 'jenis_passpor' => $request->jenis_passpor,
@@ -96,6 +69,7 @@ class PermohonanController extends Controller
                 'keberangkatan' => $request->keberangkatan,
                 'kepulangan' => $request->kepulangan,
                 'status_permohonan'=> 'pending',
+                'id_user'=>$request->id_user
             ]);
 
             $data = Kk::where('nik','=',$request->nik)->get();
@@ -109,6 +83,25 @@ class PermohonanController extends Controller
             return formatAPI::createAPI(400,'Failed',$error->getMessage());
         }
     }
+
+    public function getData(){
+        $di = Auth::user();
+        $data = DB::table('kk')
+       ->join('permohonan', 'permohonan.nik', '=', 'kk.nik')
+       ->join('document', 'document.nik', '=', 'permohonan.nik')
+       ->join('user', 'user.id_user', '=', 'kk.id_user')
+       ->select('kk.*','kk.nama','permohonan.jenis_passpor','permohonan.kepentingan','permohonan.negara_tujuan','permohonan.keberangkatan','permohonan.kepulangan','document.kk','document.pathkk','document.ktp','document.pathktp','document.akta','document.pathakta','document.dokumen_tambahan','document.pathdoc')
+       ->where('permohonan.nik',$nik)
+       ->get();
+
+       if($data){
+           if($data){
+               return formatAPI::createAPI(200,'Success',$data);
+           }else{
+               return formatAPI::createAPI(400,'Failed');
+           }
+       }
+   }
 
     /**
      * Store a newly created resource in storage.

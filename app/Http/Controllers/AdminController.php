@@ -16,13 +16,13 @@ class AdminController extends Controller
         ->join('permohonan', 'permohonan.nik', '=', 'kk.nik')
         ->join('document', 'document.nik', '=', 'permohonan.nik')
         ->get();
-
+        //dd($data);
         if($data){
             if($data){
                 return formatAPI::createAPI(200,'Success',$data);
             }else{
                 return formatAPI::createAPI(400,'Failed');
-            }
+            }   
         }
     }
 
