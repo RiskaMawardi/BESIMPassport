@@ -25,7 +25,8 @@ return new class extends Migration
             $table->string('pathakta')->nullable();
             $table->string('dokumen_tambahan')->nullable();
             $table->string('pathdoc')->nullable();
-
+            $table->bigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

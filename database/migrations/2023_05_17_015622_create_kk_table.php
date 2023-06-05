@@ -21,11 +21,11 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->char('jk',1);
             $table->text('alamat');
-
             $table->char('status_sipil',1);
             $table->string('jenis_pekerjaan');
             $table->char('kewarganegaraan',1);
-
+            $table->bigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

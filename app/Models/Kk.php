@@ -19,6 +19,7 @@ class Kk extends Model
         'status_sipil',
         'jenis_pekerjaan',
         'kewarganegaraan',
+        'id_user'
     ];
 
    

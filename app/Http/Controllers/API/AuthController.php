@@ -21,10 +21,10 @@ class AuthController extends Controller
     public function register(Request $request){
         $validate = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'no_hp' => 'required',
-            'no_kk' => 'required',
+            'no_hp' => 'required|numeric',
+            'no_kk' => 'required|numeric',
             'role' => 'required',
         ]);
 
@@ -52,11 +52,6 @@ class AuthController extends Controller
         } else{ 
             return BaseController::sendError('Unauthorised.', ['error'=>'Unauthorised']);
         } 
-    }
-
-    public function logout1(Request $request){
-        
-        $request->user()->currentAccessToken()->delete();
     }
 
     public function logout()

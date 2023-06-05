@@ -18,5 +18,6 @@ class Permohonan extends Model
         'keberangkatan',
         'kepulangan',
         'status_permohonan',
+        'id_user'
     ];
 }
