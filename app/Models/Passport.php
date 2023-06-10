@@ -13,6 +13,7 @@ class Passport extends Model
         'no_passport',
         'nik',
         'foto',
+        'pathfoto',
         'kode_negara',
         'tgl_pengeluaran',
         'batas_tgl',

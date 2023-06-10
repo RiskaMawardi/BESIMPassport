@@ -32,6 +32,9 @@ Route::get('/get-data-detail/{nik}',[AdminController::class,'getDataDetail']);
 //getdatauser
 Route::get('/getDt',[PermohonanController::class,'getData']);
 
+//insert
+Route::post('/insert',[AdminController::class,'insert']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
